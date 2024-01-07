@@ -1,0 +1,71 @@
+﻿@model IEnumerable<ExamManagementApp.Models.Question>
+
+@{
+    Layout = "_Layout";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+    @*<div class="row">
+        <div class="d-flex justify-content-between">
+                 <div id="timer" class="fs-3"> 10:00</div>
+        </div>
+    </div>*@
+    <nav class="container-fluid d-flex flex-md-row flex-column justify-content-md-between pt-2">
+        <div class="row col-md-8">
+            <p class="fw-bold fs-4" id="question-text"></p>
+            <div class="d-none" id="contain-answer">
+                <input type="radio" name="answer" value="A" id="A" /><p id="question-choiceA" class="fs-6"></p>
+                <input type="radio" name="answer" value="B" id="B" /><p id="question-choiceB" class="fs-6"></p>
+                <input type="radio" name="answer" value="C" id="C" /><p id="question-choiceC" class="fs-6"></p>
+            </div>
+            <div class="pb-2">
+                <button class="btn btn-success" onclick="CheckUserCheckedAnswer()">Save & Next</button>
+            </div>
+        </div>
+        <div class="bg-secondary container-fluid col-md-4">
+            <div class="d-flex justify-content-between pt-2 container">
+                    <div id="timer" class="fs-3"> 10:00</div>
+                <button class="btn btn-danger border-0 rounded-0" onclick="LogOut()">End Exam</button>
+            </div>
+            <ul class="pagination d-flex justify-content-around pt-2">
+                <li class="page-item"><a class="page-link text-center border-0 rounded-0" id="Countanswer">0</a></li>
+                <li class="page-item"><a class="page-link text-center border-0 rounded-0" id="CountnotAnswer">0</a></li>
+            </ul>
+            <div class="d-flex justify-content-around">
+                <p>Answerd</p>
+                <p>Not Answerd</p>
+            </div>
+            <ul class="pagination gy-2 row row-cols-5">
+                @foreach (var item in Model.Select((value, i) => new { i, value }))
+                {
+                    if (item.i == 0)
+                    {
+                        <li class="page-item qNum active" id="@item.value.Id" onclick="AddACtiveClass(@item.i)"><a class="page-link text-black border-0 rounded-0 text-center Question" href="javascript:;" data-id="@item.value.Id">@((int)item.i + 1)</a></li>
+
+                    }
+                    else
+                    {
+                        <li class="page-item qNum" id="@item.value.Id" onclick="AddACtiveClass(@item.i)"><a class="page-link Question text-black border-0 rounded-0 text-center" href="javascript:;" data-id="@item.value.Id">@((int)item.i+1)</a></li>
+                    }
+                }
+                @*<li class="page-item"><a class="page-link text-black border-0 rounded-0 text-center" href="#">1</a></li>*@
+            </ul>
+        </div>
+    </nav>
+    @section Scripts {
+        <script>
+            function getEmployeeId()
+            {
+                return @TempData["EmpId"];
+            }
+        </script>
+        <script src="~/js/MyJs/script.js">
+        </script>
+    }
+</body>
+</html>

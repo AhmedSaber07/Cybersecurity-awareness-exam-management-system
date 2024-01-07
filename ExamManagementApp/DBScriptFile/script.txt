@@ -1,0 +1,283 @@
+USE [master]
+GO
+/****** Object:  Database [InstitutesManagementDB]    Script Date: 1/6/2024 12:49:27 PM ******/
+CREATE DATABASE [InstitutesManagementDB]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'InstitutesManagementDB', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL12.AHMEDSABER\MSSQL\DATA\InstitutesManagementDB.mdf' , SIZE = 3264KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
+ LOG ON 
+( NAME = N'InstitutesManagementDB_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL12.AHMEDSABER\MSSQL\DATA\InstitutesManagementDB_log.ldf' , SIZE = 832KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
+GO
+ALTER DATABASE [InstitutesManagementDB] SET COMPATIBILITY_LEVEL = 120
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [InstitutesManagementDB].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [InstitutesManagementDB] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [InstitutesManagementDB] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [InstitutesManagementDB] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [InstitutesManagementDB] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [InstitutesManagementDB] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [InstitutesManagementDB] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [InstitutesManagementDB] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [InstitutesManagementDB] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [InstitutesManagementDB] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [InstitutesManagementDB] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [InstitutesManagementDB] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [InstitutesManagementDB] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [InstitutesManagementDB] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [InstitutesManagementDB] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [InstitutesManagementDB] SET  ENABLE_BROKER 
+GO
+ALTER DATABASE [InstitutesManagementDB] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [InstitutesManagementDB] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [InstitutesManagementDB] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [InstitutesManagementDB] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [InstitutesManagementDB] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [InstitutesManagementDB] SET READ_COMMITTED_SNAPSHOT ON 
+GO
+ALTER DATABASE [InstitutesManagementDB] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [InstitutesManagementDB] SET RECOVERY FULL 
+GO
+ALTER DATABASE [InstitutesManagementDB] SET  MULTI_USER 
+GO
+ALTER DATABASE [InstitutesManagementDB] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [InstitutesManagementDB] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [InstitutesManagementDB] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [InstitutesManagementDB] SET TARGET_RECOVERY_TIME = 0 SECONDS 
+GO
+ALTER DATABASE [InstitutesManagementDB] SET DELAYED_DURABILITY = DISABLED 
+GO
+EXEC sys.sp_db_vardecimal_storage_format N'InstitutesManagementDB', N'ON'
+GO
+USE [InstitutesManagementDB]
+GO
+/****** Object:  Table [dbo].[__EFMigrationsHistory]    Script Date: 1/6/2024 12:49:27 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[__EFMigrationsHistory](
+	[MigrationId] [nvarchar](150) NOT NULL,
+	[ProductVersion] [nvarchar](32) NOT NULL,
+ CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY CLUSTERED 
+(
+	[MigrationId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Admins]    Script Date: 1/6/2024 12:49:27 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Admins](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](max) NULL,
+	[Password] [nvarchar](max) NULL,
+ CONSTRAINT [PK_Admins] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Employees]    Script Date: 1/6/2024 12:49:27 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Employees](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](max) NULL,
+	[InstituteId] [int] NOT NULL,
+ CONSTRAINT [PK_Employees] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[FinalResults]    Script Date: 1/6/2024 12:49:27 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[FinalResults](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Grade] [int] NOT NULL,
+	[EmployeeId] [int] NOT NULL,
+ CONSTRAINT [PK_FinalResults] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[InstituteQuestion]    Script Date: 1/6/2024 12:49:27 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[InstituteQuestion](
+	[InstitutesId] [int] NOT NULL,
+	[QuestionsId] [int] NOT NULL,
+ CONSTRAINT [PK_InstituteQuestion] PRIMARY KEY CLUSTERED 
+(
+	[InstitutesId] ASC,
+	[QuestionsId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Institutes]    Script Date: 1/6/2024 12:49:27 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Institutes](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](max) NULL,
+	[Code] [nvarchar](max) NULL,
+	[ManagerId] [int] NOT NULL,
+ CONSTRAINT [PK_Institutes] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Managers]    Script Date: 1/6/2024 12:49:27 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Managers](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Email] [nvarchar](max) NULL,
+	[Password] [nvarchar](max) NULL,
+	[Name] [nvarchar](max) NULL,
+ CONSTRAINT [PK_Managers] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Questions]    Script Date: 1/6/2024 12:49:27 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Questions](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Text] [nvarchar](max) NULL,
+	[Point] [int] NOT NULL,
+	[Answer] [nvarchar](max) NULL,
+	[choiceA] [nvarchar](max) NULL,
+	[choiceB] [nvarchar](max) NULL,
+	[choiceC] [nvarchar](max) NULL,
+ CONSTRAINT [PK_Questions] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Results]    Script Date: 1/6/2024 12:49:27 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Results](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[EmployeeAnswer] [nvarchar](max) NULL,
+	[QuestionId] [int] NOT NULL,
+	[EmployeeId] [int] NOT NULL,
+ CONSTRAINT [PK_Results] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Index [IX_Employees_InstituteId]    Script Date: 1/6/2024 12:49:27 PM ******/
+CREATE NONCLUSTERED INDEX [IX_Employees_InstituteId] ON [dbo].[Employees]
+(
+	[InstituteId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+/****** Object:  Index [IX_InstituteQuestion_QuestionsId]    Script Date: 1/6/2024 12:49:27 PM ******/
+CREATE NONCLUSTERED INDEX [IX_InstituteQuestion_QuestionsId] ON [dbo].[InstituteQuestion]
+(
+	[QuestionsId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[Employees]  WITH CHECK ADD  CONSTRAINT [FK_Employees_Institutes_InstituteId] FOREIGN KEY([InstituteId])
+REFERENCES [dbo].[Institutes] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[Employees] CHECK CONSTRAINT [FK_Employees_Institutes_InstituteId]
+GO
+ALTER TABLE [dbo].[FinalResults]  WITH CHECK ADD  CONSTRAINT [FK_FinalResults_Employees] FOREIGN KEY([EmployeeId])
+REFERENCES [dbo].[Employees] ([Id])
+GO
+ALTER TABLE [dbo].[FinalResults] CHECK CONSTRAINT [FK_FinalResults_Employees]
+GO
+ALTER TABLE [dbo].[InstituteQuestion]  WITH CHECK ADD  CONSTRAINT [FK_InstituteQuestion_Institutes_InstitutesId] FOREIGN KEY([InstitutesId])
+REFERENCES [dbo].[Institutes] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[InstituteQuestion] CHECK CONSTRAINT [FK_InstituteQuestion_Institutes_InstitutesId]
+GO
+ALTER TABLE [dbo].[InstituteQuestion]  WITH CHECK ADD  CONSTRAINT [FK_InstituteQuestion_Questions_QuestionsId] FOREIGN KEY([QuestionsId])
+REFERENCES [dbo].[Questions] ([Id])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[InstituteQuestion] CHECK CONSTRAINT [FK_InstituteQuestion_Questions_QuestionsId]
+GO
+ALTER TABLE [dbo].[Institutes]  WITH CHECK ADD  CONSTRAINT [FK_Institutes_Managers] FOREIGN KEY([ManagerId])
+REFERENCES [dbo].[Managers] ([Id])
+GO
+ALTER TABLE [dbo].[Institutes] CHECK CONSTRAINT [FK_Institutes_Managers]
+GO
+ALTER TABLE [dbo].[Results]  WITH CHECK ADD  CONSTRAINT [FK_Results_Employees] FOREIGN KEY([EmployeeId])
+REFERENCES [dbo].[Employees] ([Id])
+GO
+ALTER TABLE [dbo].[Results] CHECK CONSTRAINT [FK_Results_Employees]
+GO
+ALTER TABLE [dbo].[Results]  WITH CHECK ADD  CONSTRAINT [FK_Results_Questions] FOREIGN KEY([QuestionId])
+REFERENCES [dbo].[Questions] ([Id])
+GO
+ALTER TABLE [dbo].[Results] CHECK CONSTRAINT [FK_Results_Questions]
+GO
+USE [master]
+GO
+ALTER DATABASE [InstitutesManagementDB] SET  READ_WRITE 
+GO

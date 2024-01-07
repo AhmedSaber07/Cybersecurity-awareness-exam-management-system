@@ -1,0 +1,33 @@
+﻿@model ExamManagementApp.Dtos.EmployeeLoginDto
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (ViewBag.InvalidCode != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Error!</strong> @ViewBag.InvalidCode
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+<div class="row justify-content-center">
+    <div class="col-md-4">
+        <form asp-action="Login" class="mt-5">
+            <div class="form-group mt-2">
+                <span asp-validation-for="Name" class="text-danger"></span>
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+            </div>
+            <div class="form-group mt-2">
+                <span asp-validation-for="Code" class="text-danger"></span>
+                <label asp-for="Code" class="control-label"></label>
+                <input asp-for="Code" class="form-control" />
+            </div>
+            <div class="form-group d-flex flex-column mt-4">
+                <input type="submit" value="Submit" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

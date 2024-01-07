@@ -1,0 +1,49 @@
+﻿@model ExamManagementApp.Dtos.ManagerRegisterDto
+
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if (ViewBag.EmailExists != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Error!</strong> @ViewBag.EmailExists
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+<div class="row justify-content-center">
+    <div class="col-md-4">
+        <form asp-action="Register" class="mt-5">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group mt-2">
+                <span asp-validation-for="Name" class="text-danger"></span>
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+            </div>
+            <div class="form-group mt-2">
+                <span asp-validation-for="Email" class="text-danger"></span>
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+            </div>
+            <div class="form-group mt-2">
+                <span asp-validation-for="InstitueName" class="text-danger"></span>
+                <label asp-for="InstitueName" class="control-label"></label>
+                <input asp-for="InstitueName" class="form-control" />
+            </div>
+            <div class="form-group mt-2">
+                <span asp-validation-for="Password" class="text-danger"></span>
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+            </div>
+            <div class="form-group mt-2">
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                <label asp-for="ConfirmPassword" class="control-label"></label>
+                <input asp-for="ConfirmPassword" class="form-control" />
+            </div>
+            <div class="form-group d-flex flex-column mt-4">
+                <input type="submit" value="Create" class="btn btn-primary" />
+                <a asp-action="LogIn" class="align-self-center mt-2">already have an account! </a>
+            </div>
+        </form>
+    </div>
+</div>

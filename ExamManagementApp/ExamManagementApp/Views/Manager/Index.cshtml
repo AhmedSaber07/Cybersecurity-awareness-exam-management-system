@@ -1,0 +1,62 @@
+﻿@model ExamManagementApp.Dtos.InstituteHomePageDto
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="p-2 mt-3" style="border:1px solid;">
+    <div class="d-md-flex d-block justify-content-md-around">
+        <div class="fw-bold">@Html.DisplayNameFor(model => model.Name) @Html.DisplayFor(model => model.Name)</div>
+        <div class="fw-bold d-md-flex d-block">
+            <span>@Html.DisplayNameFor(model => model.Code)</span>
+            <div id="myCode">@Html.DisplayFor(model => model.Code)</div>
+            <button onclick="CopyCode()" id="copyBtn" class="btn btn-light border-0 ms-3"><i class="bi bi-clipboard"></i></button>
+        </div>
+    </div>
+    <div class="d-md-flex d-block justify-content-md-around">
+        <div class="fw-bold">@Html.DisplayNameFor(model => model.NumberOfEmployee) @Html.DisplayFor(model => model.NumberOfEmployee)</div>
+        <div class="fw-bold fs-4 text-decoration-underline">@Html.DisplayNameFor(model => model.AwarenessRate) @Html.DisplayFor(model => model.AwarenessRate)</div>
+    </div>
+</div>
+<div>
+    <div class="d-flex justify-content-end pt-2">
+        <form method="post" asp-action="ExportEmployeeResultReport" asp-controller="Manager">
+            <input type="submit" value="Export Employee Grade" class="btn btn-primary" />
+        </form>
+        @*<form method="post" asp-action="ExportAwarenessRateReport" asp-controller="Manager">
+            <input type="submit" value="Export AwarenessRate Report" class="btn btn-primary" />
+        </form>*@
+    </div>
+    <table class="table table-striped mt-4">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>
+                    Employee Name
+                </th>
+                <th>
+                    Grade
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.EmployeeResults.Select((value, i) => new { i, value }))
+            {
+                <tr class="ContainQuestion">
+                    <td class="fw-bold">
+                        @((int)item.i+1)
+                    </td>
+                    <td>
+                        @Html.DisplayTextFor(modelItem => item.value.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.value.Grade)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+@section Scripts {
+    <script src="~/js/site.js"></script>
+}
