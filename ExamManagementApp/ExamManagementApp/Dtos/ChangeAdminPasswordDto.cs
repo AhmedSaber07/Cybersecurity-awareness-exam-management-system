@@ -1,25 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace ExamManagementApp.Dtos
 {
     public class ChangeAdminPasswordDto
     {
         public int Id { get; set; }
-        [Required(ErrorMessage ="*")]
+
+        [Required(ErrorMessage = "*")]
         [DataType(DataType.Password)]
+        [Display(Name = "كلمة المرور القديمة")]
         public string OldPassword { get; set; }
+
         [Required(ErrorMessage = "*")]
         [DataType(DataType.Password)]
-        [MinLength(8, ErrorMessage = "Minimum length of password is 8 character")]
-        [RegularExpression("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$", ErrorMessage = "Password is Weak! Choose a Strong Password")]
+        [MinLength(8, ErrorMessage = "الحد الأدنى لطول كلمة المرور هو 8 أحرف")]
+        [RegularExpression("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$", ErrorMessage = "كلمة المرور ضعيفة! اختر كلمة مرور قوية")]
+        [Display(Name = "كلمة المرور الجديدة")]
         public string NewPassword { get; set; }
+
         [Required(ErrorMessage = "*")]
         [DataType(DataType.Password)]
-        [Compare("NewPassword", ErrorMessage = "Password And Confirm Password Not Matched!")]
+        [Compare("NewPassword", ErrorMessage = "كلمة المرور وتأكيد كلمة المرور غير متطابقين!")]
+        [Display(Name = "تأكيد كلمة المرور الجديدة")]
         public string ConfirmNewPassword { get; set; }
     }
 }

@@ -6,7 +6,7 @@
 }
 @if (ViewBag.EmailExists != null)
 {
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <div class="alert alert-danger alert-dismissible fade show pt-2" role="alert">
         <strong>Error!</strong> @ViewBag.EmailExists
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
@@ -26,9 +26,9 @@
                 <input asp-for="Email" class="form-control" />
             </div>
             <div class="form-group mt-2">
-                <span asp-validation-for="InstitueName" class="text-danger"></span>
-                <label asp-for="InstitueName" class="control-label"></label>
-                <input asp-for="InstitueName" class="form-control" />
+                <span asp-validation-for="InstituteName" class="text-danger"></span>
+                <label asp-for="InstituteName" class="control-label"></label>
+                <input asp-for="InstituteName" class="form-control" />
             </div>
             <div class="form-group mt-2">
                 <span asp-validation-for="Password" class="text-danger"></span>
@@ -41,8 +41,8 @@
                 <input asp-for="ConfirmPassword" class="form-control" />
             </div>
             <div class="form-group d-flex flex-column mt-4">
-                <input type="submit" value="Create" class="btn btn-primary" />
-                <a asp-action="LogIn" class="align-self-center mt-2">already have an account! </a>
+                <input type="submit" value="انشاء حساب" class="btn btn-primary" />
+                <a asp-action="LogIn" class="align-self-center mt-2">لديك حساب بالفعل </a>
             </div>
         </form>
     </div>

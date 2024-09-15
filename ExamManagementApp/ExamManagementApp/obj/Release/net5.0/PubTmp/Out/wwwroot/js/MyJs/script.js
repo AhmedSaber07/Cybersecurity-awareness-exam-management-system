@@ -59,7 +59,25 @@ function getCountOfAnswerdQuestion(employeeId) {
         method: 'GET',
         success: function (response) {
             $('#Countanswer').text(response);
-            $('#CountnotAnswer').text(sz-response);
+            $('#CountnotAnswer').text(sz - response);
+            if (response == 20) {
+                Swal.fire({
+                    title: "لقد انتهيت من الإجابة على جميع الأسئلة",
+                    text: "هل تريد الاستمرار؟",
+                    icon: "info",
+                    confirmButtonText: "نعم",
+                    cancelButtonText: "لا",
+                    showCancelButton: true,
+                    showCloseButton: true
+                }).then((result) => {
+                    //if (result.isConfirmed) {
+                    //    window.location.href = '/Exam/EmployeeEndExam';
+                    //}
+                    if (result.isDismissed) {
+                        window.location.href = '/Exam/EmployeeEndExam';
+                    }
+                });
+            }
         },
         error: function () {
             console.log("error when display question");
@@ -90,6 +108,8 @@ function nextQuestion() {
         AddACtiveClass(0);
     else
         AddACtiveClass(currentQuestionNumber);
+
+
     removeChecked();
     displayQuestion(getQuestionId());
     getEmployeeChoice(employeeId, getQuestionId());
@@ -100,13 +120,13 @@ function nextQuestion() {
 
 function LogOut() {
     Swal.fire({
-        title: "Are you sure?",
-        text: "You are Leave Exam!",
+        title: "هل تريد انهاء الاختبار بالفعل ؟",
+        text: "لن تتمكن من الرجوع",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, Exit"
+        confirmButtonText: "نعم"
     }).then((result) => {
         if (result.isConfirmed) {
             window.location.href = '/Exam/EmployeeEndExam';
@@ -125,7 +145,7 @@ function CheckUserCheckedAnswer() {
             nextQuestion();
         }
         else {
-            alert('No Answer To Save');
+            alert('يجب اختيار اجابة علي السؤال');
         }
     });
 }

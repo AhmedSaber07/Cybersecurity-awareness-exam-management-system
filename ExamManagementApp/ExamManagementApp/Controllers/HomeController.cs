@@ -18,7 +18,6 @@ namespace ExamManagementApp.Controllers
         {
             _logger = logger;
         }
-
         public IActionResult Index()
         {
             TempData["ManagerName"] = null;

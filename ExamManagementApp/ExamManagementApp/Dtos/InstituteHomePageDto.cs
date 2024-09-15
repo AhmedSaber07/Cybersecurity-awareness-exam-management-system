@@ -9,14 +9,20 @@ namespace ExamManagementApp.Dtos
     public class InstituteHomePageDto
     {
         public int Id { get; set; }
-        [Display(Name = "Name : ")]
+
+        [Display(Name = "الاسم : ")]
         public string? Name { get; set; }
-        [Display(Name = "Code : ")]
+
+        [Display(Name = "الرمز : ")]
         public string? Code { get; set; }
-        [Display(Name="Number OF Employee : ")]
+
+        [Display(Name = "عدد الموظفين : ")]
         public int? NumberOfEmployee { get; set; }
+
         public List<EmployeeResultDto> EmployeeResults { get; set; } = new List<EmployeeResultDto>();
-        [Display(Name = "Awareness Rate : ")]
+
+        [Display(Name = "معدل الوعي : ")]
         public string AwarenessRate { get; set; }
     }
+
 }

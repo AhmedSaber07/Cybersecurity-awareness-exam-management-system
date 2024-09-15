@@ -2,62 +2,63 @@
 
 @{
     Layout = "_DashboardLayout";
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "تعديل السؤال";
 }
 
-<h4>Edit Question</h4>
+<h4>تعديل السؤال</h4>
 <hr />
 @if (ViewBag.errorChoice != null)
 {
-<div class="alert alert-danger alert-dismissible fade show" role="alert">
-    <strong>Error!</strong> @ViewBag.errorChoice
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>خطأ!</strong> @ViewBag.errorChoice
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="إغلاق"></button>
+    </div>
 }
-        <form asp-action="Edit">
-            @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <span asp-validation-for="Text" class="text-danger"></span>
-                <label asp-for="Text" class="control-label"></label>
-                <textarea asp-for="Text" rows="5" class="form-control"></textarea>
-            </div>
-            <div class="form-group">
-                <span asp-validation-for="choiceA" class="text-danger"></span>
-                <label asp-for="choiceA" class="control-label"></label>
-                <input asp-for="choiceA" class="form-control" />
-            </div>
-            <div class="form-group">
-                <span asp-validation-for="choiceB" class="text-danger"></span>
-                <label asp-for="choiceB" class="control-label"></label>
-                <input asp-for="choiceB" class="form-control" />
-            </div>
-            <div class="form-group">
-                <span asp-validation-for="choiceC" class="text-danger"></span>
-                <label asp-for="choiceC" class="control-label"></label>
-                <input asp-for="choiceC" class="form-control" />
-            </div>
-            <div class="form-group">
-                <span asp-validation-for="Answer" class="text-danger"></span>
-                <label asp-for="Answer" class="control-label"></label>
-                @*<input asp-for="correctAnswer" class="form-control" />*@
-                <select asp-for="Answer" class="form-control">
-                    <option value="A">A</option>
-                    <option value="B">B</option>
-                    <option value="C">C</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <span asp-validation-for="Point" class="text-danger"></span>
-                <label asp-for="Point" class="control-label"></label>
-                <input asp-for="Point" class="form-control" />
-            </div>
-            <div class="form-group d-flex justify-content-between pt-2">
-                @*<input type="submit" value="Edit" class="btn btn-primary" />*@
-                <button class="btn btn-primary"><i class="bi bi-pencil-square"></i>Edit</button>
-                <a class="btn btn-secondary" asp-action="Index"><i class="bi bi-box-arrow-left"></i> Back to List</a>
-            </div>
-        </form>
+<form asp-action="Edit">
+    @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <span asp-validation-for="Text" class="text-danger"></span>
+        <label asp-for="Text" class="control-label">نص السؤال</label>
+        <textarea asp-for="Text" rows="5" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="choiceA" class="text-danger"></span>
+        <label asp-for="choiceA" class="control-label">الخيار A</label>
+        <input asp-for="choiceA" class="form-control" />
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="choiceB" class="text-danger"></span>
+        <label asp-for="choiceB" class="control-label">الخيار B</label>
+        <input asp-for="choiceB" class="form-control" />
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="choiceC" class="text-danger"></span>
+        <label asp-for="choiceC" class="control-label">الخيار C</label>
+        <input asp-for="choiceC" class="form-control" />
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="Answer" class="text-danger"></span>
+        <label asp-for="Answer" class="control-label">الإجابة الصحيحة</label>
+        <select asp-for="Answer" class="form-control">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="Point" class="text-danger"></span>
+        <label asp-for="Point" class="control-label">النقاط</label>
+        <input asp-for="Point" class="form-control" />
+    </div>
+    <div class="form-group d-flex justify-content-between pt-2">
+        @*<input type="submit" value="Edit" class="btn btn-primary" />*@
+        <button class="btn btn-primary"><i class="bi bi-pencil-square"></i>تعديل</button>
+        <a class="btn btn-secondary" asp-action="Index"><i class="bi bi-box-arrow-left"></i> العودة إلى القائمة</a>
+    </div>
+</form>
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

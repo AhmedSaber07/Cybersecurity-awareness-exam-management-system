@@ -8,7 +8,7 @@
 @if (ViewBag.invalidPassword != null)
 {
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>Error!</strong> @ViewBag.invalidPassword
+        <strong>خطأ!</strong> @ViewBag.invalidPassword
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 }
@@ -32,7 +32,7 @@
                 <input asp-for="ConfirmNewPassword" class="form-control" />
             </div>
             <div class="form-group d-flex flex-column mt-4">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="حفظ" class="btn" style="background-color:rgba(30, 67, 86, 0.8)" />
             </div>
         </form>
     </div>

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Projects\\ExamManagementApp\\ExamManagementApp\\ExamManagementApp.csproj": {}
+    "D:\\New folder\\ExamManagementSystem\\ExamManagementSystem\\ExamManagementApp\\ExamManagementApp\\ExamManagementApp.csproj": {}
   },
   "projects": {
-    "F:\\Projects\\ExamManagementApp\\ExamManagementApp\\ExamManagementApp.csproj": {
+    "D:\\New folder\\ExamManagementSystem\\ExamManagementSystem\\ExamManagementApp\\ExamManagementApp\\ExamManagementApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Projects\\ExamManagementApp\\ExamManagementApp\\ExamManagementApp.csproj",
+        "projectUniqueName": "D:\\New folder\\ExamManagementSystem\\ExamManagementSystem\\ExamManagementApp\\ExamManagementApp\\ExamManagementApp.csproj",
         "projectName": "ExamManagementApp",
-        "projectPath": "F:\\Projects\\ExamManagementApp\\ExamManagementApp\\ExamManagementApp.csproj",
-        "packagesPath": "C:\\Users\\ahmed\\.nuget\\packages\\",
-        "outputPath": "F:\\Projects\\ExamManagementApp\\ExamManagementApp\\obj\\",
+        "projectPath": "D:\\New folder\\ExamManagementSystem\\ExamManagementSystem\\ExamManagementApp\\ExamManagementApp\\ExamManagementApp.csproj",
+        "packagesPath": "C:\\Users\\ADMAIN\\.nuget\\packages\\",
+        "outputPath": "D:\\New folder\\ExamManagementSystem\\ExamManagementSystem\\ExamManagementApp\\ExamManagementApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ahmed\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ADMAIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -34,6 +34,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -79,7 +84,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -91,7 +97,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
         }
       }
     }

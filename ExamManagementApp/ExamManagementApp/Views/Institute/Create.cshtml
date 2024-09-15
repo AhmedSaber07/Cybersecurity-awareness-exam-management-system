@@ -2,15 +2,15 @@
 
 @{
     Layout = "_DashboardLayout";
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "إنشاء";
 }
 
-<h4>Add Institution</h4>
+<h4>إضافة مؤسسة</h4>
 <hr />
 @if (ViewBag.schoolAdded != null)
 {
     <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong> Institution Added Successfully </strong>
+        <strong>تمت إضافة المؤسسة بنجاح</strong>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 }
@@ -18,17 +18,19 @@
     @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
     <div class="form-group">
         <span asp-validation-for="Name" class="text-danger"></span>
-        <label asp-for="Name" class="control-label"></label>
+        <label asp-for="Name" class="control-label">اسم المؤسسة</label>
         <input asp-for="Name" class="form-control" />
     </div>
     <div class="form-group d-flex justify-content-between pt-2">
         @*<input type="submit" value="Edit" class="btn btn-primary" />*@
-        <button class="btn btn-success"><i class="bi bi-plus-circle"></i> Add</button>
-        <a class="btn btn-secondary" asp-action="Index"><i class="bi bi-box-arrow-left"></i> Back to List</a>
+        <button class="btn btn-success"><i class="bi bi-plus-circle"></i> إضافة</button>
+        <a class="btn btn-secondary" asp-action="Index"><i class="bi bi-box-arrow-left"></i> العودة إلى القائمة</a>
     </div>
 </form>
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
 
 <script src="~/js/script.js"></script>

@@ -45,7 +45,7 @@ namespace ExamManagementApp.Controllers
                 }
                 else
                 {
-                    ViewBag.InvalidCode = "Invalid Code";
+                    ViewBag.InvalidCode = "الكود غير صحيح";
                     return View(employee);
                 }
             }

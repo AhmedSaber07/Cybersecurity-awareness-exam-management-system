@@ -1,7 +1,7 @@
 ﻿@model ExamManagementApp.Dtos.InstituteHomePageDto
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "الصفحة الرئيسية";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="p-2 mt-3" style="border:1px solid;">
@@ -21,10 +21,10 @@
 <div>
     <div class="d-flex justify-content-end pt-2">
         <form method="post" asp-action="ExportEmployeeResultReport" asp-controller="Manager">
-            <input type="submit" value="Export Employee Grade" class="btn btn-primary" />
+            <input type="submit" value="تصدير نتائج الموظف" class="btn btn-primary" />
         </form>
         @*<form method="post" asp-action="ExportAwarenessRateReport" asp-controller="Manager">
-            <input type="submit" value="Export AwarenessRate Report" class="btn btn-primary" />
+        <input type="submit" value="تصدير تقرير معدل الوعي" class="btn btn-primary" />
         </form>*@
     </div>
     <table class="table table-striped mt-4">
@@ -32,10 +32,10 @@
             <tr>
                 <th>#</th>
                 <th>
-                    Employee Name
+                    اسم الموظف
                 </th>
                 <th>
-                    Grade
+                    الدرجة
                 </th>
             </tr>
         </thead>
@@ -44,7 +44,7 @@
             {
                 <tr class="ContainQuestion">
                     <td class="fw-bold">
-                        @((int)item.i+1)
+                        @((int)item.i + 1)
                     </td>
                     <td>
                         @Html.DisplayTextFor(modelItem => item.value.Name)

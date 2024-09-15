@@ -9,23 +9,35 @@ namespace ExamManagementApp.Dtos
     public class ManagerRegisterDto
     {
         public int Id { get; set; }
-        [Required(ErrorMessage ="*")]
-        [MaxLength(50, ErrorMessage = "Maximum length of name is 50 character"), MinLength(3,ErrorMessage ="Minimum length of manager name is 3 character")]
+
+        [Required(ErrorMessage = "*")]
+        [MaxLength(50, ErrorMessage = "الحد الأقصى لطول الاسم هو 50 حرف")]
+        [MinLength(3, ErrorMessage = "الحد الأدنى لطول اسم المدير هو 3 أحرف")]
+        [Display(Name = "اسم المدير")]
         public string Name { get; set; }
+
         [Required(ErrorMessage = "*")]
         [EmailAddress]
-        [RegularExpression("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$",ErrorMessage ="Please Enter Valid Email")]
+        [RegularExpression("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$", ErrorMessage = "يرجى إدخال بريد إلكتروني صحيح")]
+        [Display(Name = "البريد الإلكتروني")]
         public string Email { get; set; }
+
         [Required(ErrorMessage = "*")]
-        public string InstitueName { get; set; }
+        [Display(Name = "اسم المؤسسة")]
+        public string InstituteName { get; set; }
+
         [Required(ErrorMessage = "*")]
-        [MinLength(8, ErrorMessage = "Minimum length of password is 8 character")]
+        [MinLength(8, ErrorMessage = "الحد الأدنى لطول كلمة المرور هو 8 أحرف")]
         [DataType(DataType.Password)]
-        [RegularExpression("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$", ErrorMessage = "Password is Weak! Choose a Strong Password")]
+        [RegularExpression("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$", ErrorMessage = "كلمة المرور ضعيفة! اختر كلمة مرور قوية")]
+        [Display(Name = "كلمة المرور")]
         public string Password { get; set; }
+
         [Required(ErrorMessage = "*")]
         [DataType(DataType.Password)]
-        [Compare("Password",ErrorMessage ="Password And Confirm Password Not Matched!")]
+        [Compare("Password", ErrorMessage = "كلمة المرور وتأكيد كلمة المرور غير متطابقتين!")]
+        [Display(Name = "تأكيد كلمة المرور")]
         public string ConfirmPassword { get; set; }
     }
+
 }

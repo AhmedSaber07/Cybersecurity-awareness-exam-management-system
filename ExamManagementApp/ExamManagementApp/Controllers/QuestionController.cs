@@ -46,7 +46,7 @@ namespace ExamManagementApp.Controllers
             {
                 if(addQuestionDto.choiceA.Trim() == addQuestionDto.choiceB.Trim() || addQuestionDto.choiceA.Trim() == addQuestionDto.choiceC.Trim() || addQuestionDto.choiceB.Trim() == addQuestionDto.choiceC.Trim())
                 {
-                    ViewBag.errorChoice = "each choice of question must be different";
+                    ViewBag.errorChoice = "يجب ان لا تكون الاختيارات متشابه";
                     return View(addQuestionDto);
                 }
                 Question question = new Question();
@@ -97,7 +97,7 @@ namespace ExamManagementApp.Controllers
                 {
                     if (question.choiceA.Trim() == question.choiceB.Trim() || question.choiceA.Trim() == question.choiceC.Trim() || question.choiceB.Trim() == question.choiceC.Trim())
                     {
-                        ViewBag.errorChoice = "each choice of question must be different";
+                        ViewBag.errorChoice = "يجب ان لا تكون الاختيارات متشابه";
                         return View(question);
                     }
                     _context.Update(question);

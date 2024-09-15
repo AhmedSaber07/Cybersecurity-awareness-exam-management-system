@@ -1,71 +1,238 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - cyber awareness test BY HADEEL TECH</title>
-    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>*@
+    <title>@ViewData["Title"] - Cyber Awareness Test by Hadeel Tech</title>
+    <link rel="icon" type="image/x-icon" href="~/img/hadeel-high-resolution-logo-black.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="~/css/site.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="~/vendor/icofont/icofont.min.css" rel="stylesheet">
+    <link href="~/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="~/vendor/venobox/venobox.css" rel="stylesheet">
+    @* <link href="~/vendor/owl.carousel/~/owl.carousel.min.css" rel="stylesheet"> *@
+    <link href="~/vendor/aos/aos.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="~/css/style.css" rel="stylesheet">
+    <style>
+        .logo-image {
+            filter: invert(100%) brightness(200%) !important;
+        }
+
+    </style>
+    <!-- =======================================================
+    * Template Name: Moderna - v2.0.1
+    * Template URL: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
 </head>
-<body style="background-color: #CCC8AA">
+@* <body style="background-color: #DFF5FF">
     <header>
         @if (TempData["EmployeeName"] == null)
         {
-        <nav class="navbar navbar-expand-lg bg-dark text-white border-bottom">
-            <div class="container-fluid">
-                <a class="navbar-brand text-white" asp-controller="Home" asp-action="Index">CAT-HT</a>
-                <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav">
-                        @if (TempData["ManagerName"] == null)
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-white" asp-controller="Employee" asp-action="Login"><i class="bi bi-person-add"></i> Employee</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white" asp-controller="Manager" asp-action="Login"><i class="bi bi-person-lock"></i> Manager</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white" asp-controller="Admin" asp-action="Login"><i class="bi bi-person-gear"></i> Admin</a>
-                            </li>
-                        }
-                        else
-                        {
-
-                            <li class="nav-item">
-                                <a class="nav-link text-white">Welcome @TempData["ManagerName"]</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-white" asp-controller="Home" asp-action="LogOut" style="padding-left:60vw;"><i class="bi bi-door-open"></i>Log Out</a>
-                            </li>
-
-                        }
-                    </ul>
+            <nav class="navbar navbar-expand-lg text-white border-bottom" style="background-color:#378CE7">
+                <div class="container-fluid">
+                    <a class="navbar-brand d-md-flex d-none" asp-controller="Home" asp-action="Index">
+                        <img src="~/img/logo.png" class="d-flex w-25 h-25" />
+                    </a>
+                    <div class="d-flex d-md-none justify-content-between">
+                        <img src="~/img/logo.png" class="d-flex w-25 h-25" />
+                        <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse d-md-flex flex-column-reverse" id="navbarSupportedContent">
+                        <ul class="navbar-nav">
+                            @if (TempData["ManagerName"] == null)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" asp-controller="Employee" asp-action="Login"><i class="bi bi-person-add"></i> Employee</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" asp-controller="Manager" asp-action="Login"><i class="bi bi-person-lock"></i> Manager</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" asp-controller="Admin" asp-action="Login"><i class="bi bi-person-gear"></i> Admin</a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-white">Welcome @TempData["ManagerName"]</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" asp-controller="Home" asp-action="LogOut" style="padding-left:60vw;"><i class="bi bi-door-open"></i>Log Out</a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
         }
     </header>
-    <div class="container-fluid">
+    <div class="container">
         <main role="main" class="pb-3">
-            @RenderBody()
+           @RenderBody();
         </main>
     </div>
 
-    <footer class="border-top footer text-muted bg-secondary">
+    <footer class="border-top footer text-muted" style="background-color:#67CDE3">
         <div class="container text-white">
-            &copy; 2024 - cyber awareness test BY HADEEL TECH @*- <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>*@
+            &copy; 2024 - Cyber Awareness Test by Hadeel Tech
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    @*<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>*@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body> *@
+<body>
+    <header id="header" class="fixed-top">
+        <div class="container">
+
+            <div class="logo float-left">
+                <h1 class="text-light">
+                    <a asp-controller="Home" asp-action="Index">
+                        <img src="~/img/hadeel-high-resolution-logo-transparent (1).png" class="logo-image" />
+                    </a>
+                </h1>
+            </div>
+
+            @if (TempData["EmployeeName"] == null)
+            {
+                <nav class="nav-menu float-right d-none d-lg-block">
+                    <ul>
+                        <li class="active"><a asp-controller="Home" asp-action="Index">الرئيسية</a></li>
+                        <li><a asp-controller="Employee" asp-action="Login"><i class="bi bi-person-add"></i> موظف</a></li>
+                        <li><a asp-controller="Manager" asp-action="Login"><i class="bi bi-person-lock"></i> مدير</a></li>
+                        <li><a asp-controller="Admin" asp-action="Login"><i class="bi bi-person-gear"></i> مسؤول</a></li>
+                    </ul>
+                </nav>
+
+                <!-- .nav-menu -->
+            }
+        </div>
+    </header><!-- End Header -->
+
+    <div class="container-fluid mt-5 pt-5">
+    @RenderBody()
+    </div>
+    <footer id="footer" class="mt-5">
+    @* <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500" class="mt-5"> *@
+
+     @*    <div class="footer-newsletter">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h4>Our Newsletter</h4>
+                        <p>Stay informed with the latest updates and insights from Hadeel Tech. Our newsletter provides valuable information on cyber security trends, best practices, and platform updates to help you and your team stay ahead of potential threats.</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <form action="" method="post">
+                            <input type="email" name="email"><input type="submit" value="Subscribe">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div> *@
+
+
+@*         <div class="footer-top">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-3 col-md-6 footer-links">
+                        <h4>Useful Links</h4>
+                        <ul>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 footer-links">
+                        <h4>Our Services</h4>
+                        <ul>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 footer-contact">
+                        <h4>Contact Us</h4>
+                        <p>
+                            A108 Adam Street <br>
+                            New York, NY 535022<br>
+                            United States <br><br>
+                            <strong>Phone:</strong> +1 5589 55488 55<br>
+                            <strong>Email:</strong> info@example.com<br>
+                        </p>
+
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 footer-info">
+                        <h3>About Moderna</h3>
+                        <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+                        <div class="social-links mt-3">
+                            <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                            <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                            <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                            <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div> *@
+
+        <div class="container">
+            <div class="copyright">
+                &copy; حقوق النشر <strong><span>هديل تك</span></strong>. جميع الحقوق محفوظة
+            </div>
+
+            <div class="credits">
+                <!-- All the links in the footer should remain intact. -->
+                <!-- You can delete the links only if you purchased the pro version. -->
+                <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/ -->
+                @* Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> *@
+            </div>
+        </div>
+    </footer>
+    <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="~/vendor/jquery/jquery.min.js"></script>
+    <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/vendor/jquery.easing/jquery.easing.min.js"></script>
+    <script src="~/vendor/php-email-form/validate.js"></script>
+    <script src="~/vendor/venobox/venobox.min.js"></script>
+    <script src="~/vendor/waypoints/jquery.waypoints.min.js"></script>
+    <script src="~/vendor/counterup/counterup.min.js"></script>
+    <script src="~/vendor/owl.carousel/owl.carousel.min.js"></script>
+    <script src="~/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="~/vendor/aos/aos.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="~/js/main.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

@@ -38,7 +38,7 @@ namespace ExamManagementApp.Controllers
                 var getAdmin = _context.Admins.FirstOrDefault(e => e.Name == adminLogin.Name && e.Password == EncryptPassword.EncodePasswordToBase64(adminLogin.Password)) ;
                 if (getAdmin == null)
                 {
-                    ViewBag.invalidaccount = "invalid account";
+                    ViewBag.invalidaccount = "خطا في اسم المستخدم او كلمة المرور";
                     return View(getAdmin);
                 }
                 TempData["AdminName"] = getAdmin.Name;
@@ -70,7 +70,7 @@ namespace ExamManagementApp.Controllers
                 var getAdmin = _context.Admins.FirstOrDefault(e => e.Password == EncryptPassword.EncodePasswordToBase64(changeAdminPassword.OldPassword));
                 if (getAdmin == null)
                 {
-                    ViewBag.invalidPassword = "Password is incorrect";
+                    ViewBag.invalidPassword = "كلمة المرور غير صحيحة";
                     return View();
                 }
                 getAdmin.Password = EncryptPassword.EncodePasswordToBase64(changeAdminPassword.NewPassword);
