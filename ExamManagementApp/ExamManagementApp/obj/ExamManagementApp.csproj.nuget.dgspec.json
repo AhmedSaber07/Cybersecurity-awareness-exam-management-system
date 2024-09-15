@@ -49,6 +49,10 @@
               "target": "Package",
               "version": "[1.0.8, )"
             },
+            "HtmlRenderer.PdfSharp": {
+              "target": "Package",
+              "version": "[1.5.0.6, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[5.0.17, )"
@@ -72,6 +76,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[5.0.2, )"
+            },
+            "PdfSharp": {
+              "target": "Package",
+              "version": "[6.1.1, )"
             },
             "itext7.pdfhtml": {
               "target": "Package",

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ExamManagementApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+012f850ecd0ddfcf9f576a1d1e8168d1e1ae9f99")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d099a2a21504b3b8a31c9b1cd25176816107d596")]
 [assembly: System.Reflection.AssemblyProductAttribute("ExamManagementApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ExamManagementApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
